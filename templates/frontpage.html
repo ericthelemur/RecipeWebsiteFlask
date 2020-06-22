@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--suppress HtmlUnknownTarget -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }} - Owen's Recipes</title>
+    <link rel="stylesheet" type="text/css" href="static/CSS/main.css">
+    <link rel="stylesheet" type="text/css" href="static/CSS/dropdown.css">
+</head>
+<body>
+    <div id="container">
+
+        <nav id="dropdown-nav">{% include 'navbar.html' %}</nav>
+
+        <h1>Owen's Recipe Website</h1>
+        <p>View all recipes here:</p>
+        {% include 'frontpageList.html' %}
+            <div id="print-buttons" style="float: right">
+                <a class='button recipeLink' href="printall">Print All</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

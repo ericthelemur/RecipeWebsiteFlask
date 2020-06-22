@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--suppress HtmlUnknownTarget -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }} - Owen's Recipes</title>
+    <link rel="stylesheet" type="text/css" href="static/CSS/main.css">
+    <script type="text/javascript" src="static/JS/IngredientMult.js"></script>
+    <style>
+        #method-section {page-break-after: always;}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="title-section">
+            <p id="path">{{ path }}</p>
+            <h1 id="title">{{ title }}</h1>
+            <table style="width: 100%;" id="infotable">
+                <tbody>
+                <tr>
+                    <td>{{ serves|safe }}</td>
+                    <td>Prep Time: {{ prepTime }}</td>
+                </tr>
+                <tr>
+                    <td>Carbs: {{ carbs }}</td>
+                    <td>Cook Time: {{ cookTime }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <div id="ingredients-section">
+            <h2>Ingredients:</h2>
+            <ul>{{ ingredients|safe }}</ul>
+        </div>
+        <div id="method-section">
+            <h2>Method:</h2>
+            <ol>{{ method|safe }}</ol>
+        </div>
+    </div>
+</body>
+
+<script>
+    document.title = "All Recipes - Owen's Recipes";
+    document.body.innerHTML = findAndReplaceNumbs(document.body.innerHTML, 1);
+    document.body.innerHTML = document.body.innerHTML.replace(/<input .+? placeholder="(\d+)" .+?>/gm, "$1");
+    window.print();
+</script>
+</html>

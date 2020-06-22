@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--suppress HtmlUnknownTarget -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }} - Owen's Recipes</title>
+    <link rel="stylesheet" type="text/css" href="static/CSS/main.css">
+    <link rel="stylesheet" type="text/css" href="static/CSS/dropdown.css">
+    <script type="text/javascript" src="static/JS/IngredientMult.js"></script>
+</head>
+<body>
+    <div id="container">
+        <nav id="dropdown-nav">
+            <a class="button" href="/">&#127968; Home</a>
+            {% include 'navbar.html' %}</nav>
+        <div id="title-section">
+            <p id="path">{{ path }}</p>
+            <h1 id="title">{{ title }}</h1>
+            <table style="width: 100%;" id="infotable">
+                <tbody>
+                <tr>
+                    <td>{{ serves|safe }}</td>
+                    <td>Prep Time: {{ prepTime }}</td>
+                </tr>
+                <tr>
+                    <td>Carbs: {{ carbs }}</td>
+                    <td>Cook Time: {{ cookTime }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <div id="ingredients-section">
+            <h2>Ingredients:</h2>
+            <ul>{{ ingredients|safe }}</ul>
+        </div>
+        <div id="method-section">
+            <h2>Method:</h2>
+            <ol>{{ method|safe }}</ol>
+        </div>
+        <div id="print-buttons" style="float: right">
+            <a class='button' onclick="changeVal(1)">+ Serving</a>
+            <a class='button' onclick="changeVal(-1)">- Serving</a>
+
+
+            <a class='button' href="measurements.html">Measurements</a>
+
+            <div class="drop up">
+                <a class="drop-button">Print</a>
+                <div class="drop-content">
+                    <a class='recipeLink' href="printall">Print All</a>
+                    <a class='recipeLink' onclick="window.print()">Print Recipe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    initializeQuantities();
+</script>
+</html>
